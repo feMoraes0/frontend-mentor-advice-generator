@@ -1,14 +1,31 @@
+import { useEffect, useState } from 'react';
+import { QuoteType } from './@types';
 import DiceIcon from './assets/icons/icon-dice.svg';
+import QuoteGateway from './gateway/QuoteGateway';
 
 const App = () => {
+  const [advice, setAdvice] = useState<QuoteType>({ id: 0, advice: '' });
+
+  const getAdvice = async () => {
+    const advice = await QuoteGateway.get();
+    setAdvice({ id: advice.id, advice: advice.advice });
+  };
+
+  useEffect(() => {
+    getAdvice();
+  }, []);
+
   return (
-    <main className="h-screen w-screen bg-[#202733] flex items-center justify-center">
-      <article className="bg-[#313A48] pt-12 px-12 pb-[72px] w-[540px] rounded-[15px] flex flex-col justify-start items-center relative">
+    <main className="px-4 h-screen w-screen bg-[#202733] flex items-center justify-center">
+      <article className="
+          px-6 pt-10 pb-16
+        bg-[#313A48] md:pt-12 md:px-12 md:pb-[72px] w-[540px] rounded-[15px] flex flex-col justify-start items-center relative
+      ">
         <span className="text-[#53FFAA] font-extrabold text-[13px] tracking-[4.09px] mb-6">
-          ADVICE #117
+          ADVICE #{advice.id}
         </span>
         <q className="text-[28px] text-[#CEE3E9] font-extrabold tracking-[0.3px] leading-[28px] text-center mb-10">
-          It is easy to sit up and take notice, what's difficult is getting up and taking action.
+          {advice.advice}
         </q>
         <div className="
           w-full flex
@@ -22,7 +39,10 @@ const App = () => {
             after:content-[''] after:h-4 after:w-[6px] after:bg-white after:rounded-[3px] after:absolute after:ml-2
           "/>
         </div>
-        <button className="bg-[#53FFAA] w-16 h-16 rounded-full flex items-center justify-center absolute bottom-[-32px] cursor-pointer">
+        <button
+          className="bg-[#53FFAA] w-16 h-16 rounded-full flex items-center justify-center absolute bottom-[-32px] cursor-pointer"
+          onClick={() => getAdvice()}
+        >
           <img src={DiceIcon} alt="dice" />
         </button>
       </article>
