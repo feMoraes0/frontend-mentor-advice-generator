@@ -7,6 +7,7 @@
 
 ## :paperclip: Useful Links
  - [Advice generator app at Frontend Mentor](https://www.frontendmentor.io/challenges/advice-generator-app-QdUG-13db)
+ - [Vitest with React Testing Library In React(created with Vite) by Victor Bruce-Crabbe](https://victorbruce82.medium.com/vitest-with-react-testing-library-in-react-created-with-vite-3552f0a9a19a)
 
 ## :book: How to use
 
