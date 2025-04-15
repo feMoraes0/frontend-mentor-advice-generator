@@ -21,12 +21,12 @@ const App = () => {
           px-6 pt-10 pb-16
         bg-[#313A48] md:pt-12 md:px-12 md:pb-[72px] w-[540px] rounded-[15px] flex flex-col justify-start items-center relative
       ">
-        <span className="text-[#53FFAA] font-extrabold text-[13px] tracking-[4.09px] mb-6">
+        <h2 className="text-[#53FFAA] font-extrabold text-[13px] tracking-[4.09px] mb-6">
           ADVICE #{advice.id}
-        </span>
-        <q className="text-[28px] text-[#CEE3E9] font-extrabold tracking-[0.3px] leading-[28px] text-center mb-10">
+        </h2>
+        <h1 className="text-[28px] text-[#CEE3E9] font-extrabold tracking-[0.3px] leading-[28px] text-center mb-10">
           {advice.advice}
-        </q>
+        </h1  >
         <div className="
           w-full flex
           before:content-[''] before:h-[1px] before:w-[calc(50%-16px)] before:bg-[#4F5D74] before:mt-1.5
