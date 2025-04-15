@@ -26,7 +26,7 @@ describe('Given the app component', () => {
     it('Then should validate the advice content text update', async () => {
       const { rerender } = await render(<App />);
       const headingTwo = screen.getByRole('heading', { level: 1 });
-      expect(headingTwo).toHaveTextContent('');
+      expect(headingTwo).toHaveTextContent('""');
       rerender(<App />);
       expect(headingTwo).toHaveTextContent('test1');
     });
